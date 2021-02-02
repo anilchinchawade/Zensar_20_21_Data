@@ -32,6 +32,11 @@ class Manager extends Employee
 		incentive = inc;
 	}
 	
+	public float calSal()
+	{
+		float basicSal = super.calSal();
+		return basicSal+(12*incentive);
+	}
 	public void details()
 	{
 		System.out.println("Details are: "+eId+","+eName+","+eSal);
@@ -40,7 +45,7 @@ class Manager extends Employee
 	public static void main(String[] args)
 	{
 		Manager m1 = new Manager(10,"ABC",50000.0f,9000);
-		System.out.println("My basic package is: "+m1.calSal());
+		System.out.println("My package is: "+m1.calSal());
 		m1.details();		
 	}
 	
