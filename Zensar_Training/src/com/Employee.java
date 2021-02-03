@@ -19,6 +19,11 @@ public class Employee
 	{
 		return eSal*12;
 	}
+	
+	public final void policy()
+	{
+		System.out.println("Policy made for all employees");
+	}
 }
 
 class Manager extends Employee
@@ -42,11 +47,20 @@ class Manager extends Employee
 		System.out.println("Details are: "+eId+","+eName+","+eSal);
 		
 	}
+	
+	//Cannot override the final method of Super class
+	/*
+	 * public void policy() { System.out.println("Managers own policy"); }
+	 */
+	 
+	
 	public static void main(String[] args)
 	{
 		Manager m1 = new Manager(10,"ABC",50000.0f,9000);
 		System.out.println("My package is: "+m1.calSal());
-		m1.details();		
+		m1.details();
+		// child reference can access final methods
+		m1.policy();
 	}
 	
 }
