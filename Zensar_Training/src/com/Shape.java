@@ -8,7 +8,6 @@ public abstract class Shape
 		this.name = name;
 	}
 	
-	// To represent generic method we mark it as abstract a it does not have any meaningful implementation.
 	public abstract float calArea();
 	
 	protected String printShape()
@@ -19,7 +18,7 @@ public abstract class Shape
 
 class Circle extends Shape
 {
-	protected float rad;
+	private float rad;
 	
 	public Circle(String name, float rad) 
 	{
@@ -29,9 +28,45 @@ class Circle extends Shape
 	
 	public float calArea()
 	{
-		//System.out.println(super.calArea());
 		return 3.142f*rad*rad;		
 	}	
+}
+
+class Square extends Shape
+{
+	private int side; 
+	public Square(String name, int side)
+	{
+		super(name);
+		this.side = side;
+		
+	}
+	
+	public float calArea()
+	{
+		return side*side;
+	}
+}
+
+class Triangle extends Shape
+{
+	private int height, base;
+	public Triangle(String name, int height, int base)
+	{
+		super(name);
+		this.height = height;
+		this.base = base;
+	}
+	
+	public float calArea()
+	{
+		return 0.5f*height*base;
+	}
+	
+}
+
+class EntryPoint
+{
 	public static void main(String[] args)
 	{
 		Circle c1 = new Circle("Circle", 3.5f);
@@ -39,13 +74,15 @@ class Circle extends Shape
 		System.out.println("The area of circle is: "+res);
 		System.out.println("The Shape is: "+c1.printShape());
 		
-		//You are not allowed to create an object of abstract class so it removes drawback of calling parent class method with no meaningful implementation
-		/*
-		 * Shape s1 = new Shape("Void"); res = s1.calArea();
-		 * System.out.println("The area of circle is: "+res);
-		 * System.out.println("The Shape is: "+s1.printShape());
-		 */
-		 
+		Square s1 = new Square("Square",7);
+		res = s1.calArea();
+		System.out.println("The area of square is: "+res);
+		System.out.println("The Shape is: "+s1.printShape());
+		
+		Triangle t1 = new Triangle("Triangle", 3, 5);
+		res = t1.calArea();
+		System.out.println("The area of circle is: "+res);
+		System.out.println("The Shape is: "+t1.printShape());
 	}
 }
 
