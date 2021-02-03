@@ -63,26 +63,37 @@ class Triangle extends Shape
 		return 0.5f*height*base;
 	}
 	
+	public void specialDemo()
+	{
+		System.out.println("It is a specialized function of triangle class");
+	}
+	
 }
 
 class EntryPoint
 {
 	public static void main(String[] args)
 	{
-		Circle c1 = new Circle("Circle", 3.5f);
+		// Super class reference has the capability of reaching all the overridden functions from superclass
+		
+		Shape c1 = new Circle("Circle", 3.5f);
 		double res = c1.calArea();
 		System.out.println("The area of circle is: "+res);
 		System.out.println("The Shape is: "+c1.printShape());
 		
-		Square s1 = new Square("Square",7);
-		res = s1.calArea();
+		c1 = new Square("Square",7);
+		res = c1.calArea();
 		System.out.println("The area of square is: "+res);
-		System.out.println("The Shape is: "+s1.printShape());
+		System.out.println("The Shape is: "+c1.printShape());
 		
-		Triangle t1 = new Triangle("Triangle", 3, 5);
-		res = t1.calArea();
+		c1 = new Triangle("Triangle", 3, 5);
+		res = c1.calArea();
 		System.out.println("The area of circle is: "+res);
-		System.out.println("The Shape is: "+t1.printShape());
+		System.out.println("The Shape is: "+c1.printShape());
+		
+		// But it cannot reach the specialised functions written in child directly, still it can reach by downcasting superclass reference to child class
+		((Triangle) c1).specialDemo();
+		
 	}
 }
 
