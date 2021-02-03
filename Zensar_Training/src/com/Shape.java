@@ -1,6 +1,6 @@
 package com;
 
-public class Shape 
+public abstract class Shape 
 {
 	protected String name;
 	public Shape(String name) 
@@ -8,12 +8,8 @@ public class Shape
 		this.name = name;
 	}
 	
-	public float calArea()
-	{
-		//This method has no meaningful implementation but it is required for achieving the dynamic polymorphism.
-		//So we will make it abstract in next example
-		return 0.0f;
-	}
+	// To represent generic method we mark it as abstract a it does not have any meaningful implementation.
+	public abstract float calArea();
 	
 	protected String printShape()
 	{
@@ -33,19 +29,23 @@ class Circle extends Shape
 	
 	public float calArea()
 	{
+		//System.out.println(super.calArea());
 		return 3.142f*rad*rad;		
 	}	
 	public static void main(String[] args)
 	{
 		Circle c1 = new Circle("Circle", 3.5f);
 		double res = c1.calArea();
-		System.out.println("The area of cirle is: "+res);
+		System.out.println("The area of circle is: "+res);
 		System.out.println("The Shape is: "+c1.printShape());
 		
-		Shape s1 = new Shape("Void");
-		res = s1.calArea();
-		System.out.println("The area of cirle is: "+res);
-		System.out.println("The Shape is: "+s1.printShape());
+		//You are not allowed to create an object of abstract class so it removes drawback of calling parent class method with no meaningful implementation
+		/*
+		 * Shape s1 = new Shape("Void"); res = s1.calArea();
+		 * System.out.println("The area of circle is: "+res);
+		 * System.out.println("The Shape is: "+s1.printShape());
+		 */
+		 
 	}
 }
 
