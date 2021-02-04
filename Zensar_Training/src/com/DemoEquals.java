@@ -10,6 +10,18 @@ public class DemoEquals
 		this.marks = marks;
 	}
 	
+	public boolean equals(Object obj)
+	{
+		//Obj is down casted to DemoEquals as obj has no visibility to child class data members
+		DemoEquals ob = (DemoEquals) obj;
+		if(ob.age == age && ob.marks == marks)
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+	
 	public static void main(String[] args) 
 	{
 		DemoEquals d1 = new DemoEquals(10,70);
@@ -34,7 +46,7 @@ public class DemoEquals
 			System.out.println("Objects are different");
 		}
 		
-		//Gives output as different because equals method with ref d1 is using the equals method of super cosmic class Object, As parent class i.e. Object class has no visibility to subclas data members so it cant compare contents.
+		//Now Gives output as same because equals method of super cosmic class Object is overridden.
 	}
 
 }
