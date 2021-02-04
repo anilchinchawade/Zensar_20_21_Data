@@ -15,6 +15,36 @@ public class Employee
 		System.out.println("Parents default Constructor");
 	}	
 	
+	public int geteId() 
+	{
+		return eId;
+	}
+
+	public String geteName() 
+	{
+		return eName;
+	}
+
+	public float geteSal() 
+	{
+		return eSal;
+	}
+
+	public void seteId(int eId) 
+	{
+		this.eId = eId;
+	}
+
+	public void seteName(String eName) 
+	{
+		this.eName = eName;
+	}
+
+	public void seteSal(float eSal) 
+	{
+		this.eSal = eSal;
+	}
+
 	public float calSal()
 	{
 		return eSal*12;
