@@ -22,12 +22,19 @@ public class DemoEquals
 			return false;
 	}
 	
+	public int hashCode()
+	{
+		//As we overidden equals() to compare object content wise we also need to override hashCode() else it will return
+		//different hashcode for two objects even after having same content because Object class compares references.
+		return age*100;
+	}
+		
 	public static void main(String[] args) 
 	{
 		DemoEquals d1 = new DemoEquals(10,70);
 		DemoEquals d2 = new DemoEquals(10,70);
-		System.out.println("Object d1 is: "+d1);
-		System.out.println("Object d2 is: "+d2);
+		System.out.println("Object d1 is: "+d1.hashCode());
+		System.out.println("Object d2 is: "+d2.hashCode());
 		if(d1 == d2)
 		{
 			System.out.println("Objects are Same");
