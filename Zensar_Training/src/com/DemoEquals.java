@@ -26,6 +26,8 @@ public class DemoEquals
 	{
 		DemoEquals d1 = new DemoEquals(10,70);
 		DemoEquals d2 = new DemoEquals(10,70);
+		System.out.println("Object d1 is: "+d1);
+		System.out.println("Object d2 is: "+d2);
 		if(d1 == d2)
 		{
 			System.out.println("Objects are Same");
